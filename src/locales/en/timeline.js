@@ -3,19 +3,19 @@ const timeline = [
         id: "y1",
         year: "2022–23",
         title: "Launch and province meetings",
-        text: "Conceptualised after the November 2022 federal elections, Anupam Abhiyan opened with a public launch and a bus yatra.",
+        text: "The Year 1 consultations brought together feminist leaders, activists, and members to discuss feminist movement building in Nepal. ",
     },
     {
         id: "y2",
         year: "2024",
         title: "The Yatras",
-        text: "The campaign went travelling. The yatras carried Anupam into all 77 districts — street-corner meetings, marches with the hand-painted banner, cultural performances",
+        text: "In its second year, Anupam Abhiyaan took the feminist movement directly into communities through 236 Yatras across all 77 districts of Nepal between March 2024 and March 2025.",
     },
     {
         id: "y3",
         year: "2025",
         title: "Signature campaign and Rajnitik Khabardari",
-        text: "Signatures were collected across the country and handed over to the political parties in a coordinated action, demanding a public commitment",
+        text: "In its third year, Anupam Abhiyaan moved from awareness-raising to placing a clear demand before political parties: equal participation for women in political decision-making.",
     },
     {
         id: "y4",

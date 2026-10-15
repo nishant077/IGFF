@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { useLanguage } from "../../context/LanguageContext";
 import translations from "../../translations";
+import { Link } from "../../router";
 
 import gallery1 from "../../assets/gallery/gallery1.jpg";
 import gallery2 from "../../assets/gallery/anupamart.png";
@@ -28,7 +29,7 @@ const AnupamSection = () => {
 
   return (
     <div className="py-12 md:py-20 px-5 sm:px-6 lg:px-10 max-w-7xl mx-auto overflow-x-clip">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12 items-center">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
         {/* Image carousel */}
         <div className="px-1 py-3 md:p-0 md:self-stretch">
           <div className="relative -rotate-3 w-full aspect-[4/3] md:aspect-auto md:h-full md:min-h-[340px] border-4 sm:border-8 border-white overflow-hidden">
@@ -85,7 +86,8 @@ const AnupamSection = () => {
             ))}
           </div>
 
-          <button
+          <Link
+            to="/anupam-abhiyan"
             className="inline-flex w-full sm:w-auto items-center justify-center gap-2 bg-(--amber-gold)
                        border border-(--amber-gold)
                        hover:bg-transparent hover:text-(--amber-gold) active:bg-transparent active:text-(--amber-gold)
@@ -93,7 +95,7 @@ const AnupamSection = () => {
                        px-5 py-3 sm:py-2 rounded-md transition-colors cursor-pointer"
           >
             {t.learnMore} <ArrowRight size={16} />
-          </button>
+          </Link>
         </div>
       </div>
     </div>

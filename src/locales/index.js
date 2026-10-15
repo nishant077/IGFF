@@ -14,6 +14,7 @@ import neAnupamAbhiyan from "./ne/anupamabhiyan";
 import enCampaignPillars from "./en/campaignPillars";
 import enBlogHero from "./en/blogHero";
 import enConatct from "./en/contact";
+import enCommittee from "./en/committee";
 
 import neNavbar from "./ne/navbar";
 import neHome from "./ne/home";
@@ -31,6 +32,7 @@ import enAnupamAbhiyan from "./en/anupamabhiyan";
 import neCampaignPillars from "./ne/campaignPillars";
 import neBlogHero from "./ne/bloghero";
 import neContact from "./ne/contact";
+import neCommittee from "./ne/committee";
 
 const translations = {
     en: {
@@ -50,6 +52,7 @@ const translations = {
         campaignPillars: enCampaignPillars,
         blogHero: enBlogHero,
         contact: enConatct,
+        committee: enCommittee,
     },
     ne: {
         navbar: neNavbar,
@@ -68,6 +71,7 @@ const translations = {
         campaignPillars: neCampaignPillars,
         blogHero: neBlogHero,
         contact: neContact,
+        committee: neCommittee,
     },
 };
 

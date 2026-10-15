@@ -706,6 +706,7 @@ import halftone from '../../assets/halfton.png';
 import CampaignPillars from "./CampaignPillars";
 import { useLanguage } from '../../context/LanguageContext';
 import translations from '../../translations';
+import y1img from '../../assets/gallery/gallery1.jpg';
 
 const MAP = mapData;
 const ALL_DISTRICTS = Object.keys(MAP.districts);
@@ -722,7 +723,7 @@ const yearVisuals = [
     mode: "prov",
     pennant: { ne: "वर्ष १", kw_en: "Launch", kw_ne: "सुरुवात" },
     status: { en: "Completed · 2022–23", ne: "सम्पन्न · २०२२–२३" },
-    img: "/assets/year-1.jpg",
+    img: y1img,
     districts: ALL_DISTRICTS,
     countN: 7,
     countTotal: 7,
@@ -928,6 +929,7 @@ const AnupamAbhiyan = () => {
                     >
                       {fact.label}
                     </span>
+                    
                   </li>
                 ))}
               </ul>
@@ -955,6 +957,10 @@ const AnupamAbhiyan = () => {
                   {selectedYear.cap}
                 </figcaption>
               </figure>
+             
+              <img src={y1img} className="mt-3"/>
+              
+             
             </div>
 
             {/* Map column */}

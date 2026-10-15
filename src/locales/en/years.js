@@ -2,7 +2,7 @@ const years = [
     {
         id: "y1",
         title: "Launch and province meetings",
-        body: "Conceptualised after the November 2022 federal elections, Anupam Abhiyan opened with a public launch and a bus yatra. Province-level meetings followed, carrying the campaign into all seven provinces and setting the shared agenda that the next four years would run on.",
+        body: "The Year 1 consultations brought together feminist leaders, activists, and members to discuss feminist movement building in Nepal. Participants identified key challenges, including patriarchal norms, violence against women, unpaid care work, and limited political participation, as well as opportunities such as constitutional rights and the 33% representation mandate. The meetings strengthened solidarity, ownership of IGFF, and collective action.",
         facts: [
             { n: "7", label: "provinces" },
             { n: "1", label: "bus yatra" },
@@ -15,7 +15,7 @@ const years = [
     {
         id: "y2",
         title: "The Yatras",
-        body: "The campaign went travelling. The yatras carried Anupam into all 77 districts — street-corner meetings, marches with the hand-painted banner, cultural performances by local groups, and open conversations with the women already holding local office.",
+        body: `In its second year, Anupam Abhiyaan took the feminist movement directly into communities through 236 Yatras across all 77 districts of Nepal between March 2024 and March 2025. Led by local women’s groups, feminist networks, civil society organisations, and community leaders, the Yatras took the form of bus, cycle, and walking journeys, depending on the local context. The year began with a symbolic East-West Bus Yatra that brought together women and allies from diverse backgrounds and carried the slogan “84 ma Mahila pahila”. The locally led Cycle and Pad Yatras, which received no financial support from IGFF, built strong local ownership. Together, they turned Anupam Abhiyaan from a national campaign into a movement experienced on the ground, connecting women across generations, identities, and regions.`,
         facts: [
             { n: "77", label: "districts reached" },
             { n: "7", label: "provinces" },
@@ -28,7 +28,8 @@ const years = [
     {
         id: "y3",
         title: "Signature campaign and Rajnitik Khabardari",
-        body: "Signatures were collected across the country and handed over to the political parties in a coordinated action, demanding a public commitment to 50 percent women’s representation in the 2027 elections. Rajnitik Khabardari — political watch — ran alongside it, tracking what the parties actually did. The campaign reached 72 of 77 districts; Humla, Jumla, Rukum East, Rukum West and Ilam were not covered.",
+        body: `
+In its third year, Anupam Abhiyaan moved from awareness-raising to placing a clear demand before political parties: equal participation for women in political decision-making. Led by local organisations and Anupam associates, the Signature Campaign collected 23,851 signatures through 419 events across all 77 districts. On 25 July 2025, the 10,016 signatures gathered in Bagmati Province were handed over to seven major political parties in the Kathmandu Valley, with rally-style processions and naumati baja, and the event was covered by multiple media outlets. Alongside it, Rajnitik Khabardari encouraged women and communities to stay informed, question political actors, and hold parties accountable for inclusive representation, treating political participation as an ongoing practice rather than something limited to election day. Together, they recognised women not only as voters but as political actors, candidates, and leaders, and showed that the call for 50% women's political representation is gaining serious traction.`,
         facts: [
             { n: "72", label: "districts covered" },
             { n: "5", label: "districts not covered" },
