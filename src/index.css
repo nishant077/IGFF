@@ -1,0 +1,47 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+
+@import "tailwindcss";
+
+:root {
+
+  --royal-purple: #5c2371;
+  --magenta-rose: #bc208d;
+  --soft-lilac: #ebe5ee;
+  --orchid-pink: #e4a6d1;
+  --blush-petal: #f7e4f1;
+  --forest-green: #1a785f;
+  --amber-gold: #ffbd59;
+  --background: #faefe6;
+ 
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+p,
+li {
+  font-family: 'Inter';
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Nunito';
+}
