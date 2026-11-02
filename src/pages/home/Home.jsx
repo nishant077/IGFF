@@ -1,5 +1,5 @@
 import { ArrowRight } from "lucide-react";
-import homesketch from "../../assets/homeart2.png";
+import homesketch from "../../assets/art.png";
 import halftone from "../../assets/halfton.png";
 import CounterSection from "../../components/CounterSection";
 import AnupamSection from "./AnupamSection";
@@ -70,7 +70,7 @@ const Home = () => {
 
             </div> */}
 
-            <div className="grid grid-cols-1 md:grid-cols-[1.1fr_1fr] items-center">
+            <div className="grid grid-cols-1 md:grid-cols-[1.2fr_1fr] gap-5 items-center pt-5">
               {/* Illustration */}
               <div>
                 <img

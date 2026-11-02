@@ -31,7 +31,7 @@ function PageRouter() {
       case "/publications":
         return <BlogsHero/>;
        case "/membership-form":
-        return <MembershipForm/>;
+        return <MembershipForm/>;  
       default:
         if (path.startsWith('/publications/blog/')) {
           const id = parseInt(path.replace('/publications/blog/', ''), 10);

@@ -1,15 +1,13 @@
 import { useRef, useState } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import ramalaxmi from '../../assets/RamaLaxmi.png';
 import halftone from '../../assets/halfton.png';
 import { useLanguage } from "../../context/LanguageContext";
 import translations from "../../translations";
 
 const cardStyles = [
-  { bubbleColor: "bg-(--orchid-pink)", textColor: "text-gray-900", photo: ramalaxmi },
-  { bubbleColor: "bg-(--background)", textColor: "text-gray-900", photo: ramalaxmi },
-  { bubbleColor: "bg-(--royal-purple)", textColor: "text-white", photo: ramalaxmi },
-  { bubbleColor: "bg-(--orchid-pink)", textColor: "text-gray-900", photo: ramalaxmi },
+  { bubbleColor: "bg-(--orchid-pink)", textColor: "text-gray-900" },
+  { bubbleColor: "bg-(--background)", textColor: "text-gray-900"},
+  { bubbleColor: "bg-(--royal-purple)", textColor: "text-white" },
 ];
 
 const MAX_CARDS = 3;
@@ -127,7 +125,7 @@ const VoicesSection = () => {
             {/* Author */}
             <div className="flex items-center gap-3 mt-12 md:mt-16">
               <img
-                src={tItem.photo}
+                src={tItem.img}
                 alt={tItem.name}
                 className="w-12 h-12 md:w-14 md:h-14 rounded-full object-cover flex-shrink-0"
               />

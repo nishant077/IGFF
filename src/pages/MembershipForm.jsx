@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { CheckCircle2, Loader2, AlertCircle } from "lucide-react";
+import halftone from "../assets/halfton.png";
 
 // Web3Forms access keys are meant to be public, but you can lock it to your domain in the Web3Forms dashboard.
 const WEB3FORMS_KEY = "61482964-0b73-401d-92d0-a104ccf9f74b";
@@ -251,13 +252,6 @@ const MembershipForm = () => {
               <br />
               तपाईंको सदस्यता फारम सफलतापूर्वक पेश भएको छ।
             </p>
-            <button
-              type="button"
-              onClick={() => setStatus("idle")}
-              className="mt-2 rounded-md bg-(--magenta) px-6 py-3 text-sm font-semibold text-white hover:bg-(--royal-purple)"
-            >
-              Submit another response · अर्को फारम भर्नुहोस्
-            </button>
           </div>
         </div>
       </section>
@@ -265,19 +259,32 @@ const MembershipForm = () => {
   }
 
   return (
-    <section className="bg-(--background) py-12 md:py-20">
-      <div className="max-w-7xl mx-auto px-6 md:px-10">
-        <div className="mx-auto max-w-3xl flex flex-col gap-8">
-          {/* Heading */}
-          <header className="flex flex-col gap-3 text-center">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold uppercase leading-tight text-(--royal-purple)">
-              Inter-Generational Feminist Forum Membership Form
-            </h2>
-            <p className="text-lg md:text-xl font-semibold text-(--forest-green)">
-              अन्तरपुस्ता महिलाबादी समूह सदस्यता फारम
-            </p>
-          </header>
+    <section className="overflow-hidden relative pt-12 md:pt-20">
+      <div className="bg-(--background) pb-12 md:pb-20">
+      {/* Heading banner with V-shaped bottom */}
+      <header
+        className="relative bg-(--royal-purple) text-center py-20 
+                   [clip-path:polygon(0_0,100%_0,100%_75%,50%_100%,0_75%)]"
+      >
+         <img
+                       src={halftone}
+                       alt=""
+                       aria-hidden="true"
+                       className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none"
+                       style={{ opacity: 0.02 }}
+                     />
+        <div className="mx-auto flex max-w-4xl flex-col gap-3">
+          <h2 className="text-3xl font-bold leading-tight text-white md:text-5xl">
+            Inter-Generational Feminist Forum Membership Form
+          </h2>
+          <p className="text-lg font-semibold md:text-xl text-(--amber-gold)">
+            अन्तरपुस्ता महिलाबादी समूह सदस्यता फारम
+          </p>
+        </div>
+      </header>
 
+      <div className="mx-auto max-w-7xl px-6 pt-10 md:px-10">
+        <div className="mx-auto flex max-w-3xl flex-col gap-8">
           {/* Commitments */}
           <div className="grid gap-4 rounded-lg border border-(--royal-purple)/20 bg-white/60 p-5 text-sm leading-relaxed text-neutral-900 sm:grid-cols-2 sm:p-6">
             <ul className="flex list-disc flex-col gap-1.5 pl-5">
@@ -416,7 +423,7 @@ const MembershipForm = () => {
                   setStatus("idle");
                 }}
                 disabled={status === "submitting"}
-                className="rounded-md border border-(--royal-purple)/40 px-6 py-3 text-sm font-semibold text-(--royal-purple) hover:bg-(--royal-purple)/10 disabled:opacity-50"
+                className="rounded-md border border-(--royal-purple)/40 px-6 py-3 text-sm font-semibold text-(--royal-purple) hover:bg-(--royal-purple) disabled:opacity-50 hover:text-white cursor-pointer"
               >
                 Clear form · फारम खाली गर्नुहोस्
               </button>
@@ -424,7 +431,7 @@ const MembershipForm = () => {
               <button
                 type="submit"
                 disabled={status === "submitting"}
-                className="inline-flex items-center justify-center gap-2 rounded-md bg-(--magenta) px-8 py-3 text-sm font-semibold text-white transition-colors hover:bg-(--royal-purple) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--royal-purple) disabled:opacity-70"
+                className="inline-flex items-center justify-center gap-2 rounded-md px-8 py-3 text-sm font-semibold text-white transition-colors bg-(--royal-purple) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--royal-purple) disabled:opacity-70 hover:bg-transparent hover:text-(--royal-purple) hover:border hover:border-(--royal-purple) cursor-pointer"
               >
                 {status === "submitting" ? (
                   <>
@@ -438,6 +445,7 @@ const MembershipForm = () => {
             </div>
           </form>
         </div>
+      </div>
       </div>
     </section>
   );
