@@ -5,12 +5,15 @@ import { useLanguage } from "../../context/LanguageContext";
 import translations from "../../translations";
 import { Link } from "../../router";
 
-import gallery1 from "../../assets/gallery/gallery1.jpg";
+import gallery1 from "../../assets/gallery/gallery11.JPG";
 import gallery2 from "../../assets/gallery/anupamart.png";
-import gallery3 from "../../assets/gallery/gallery3.jpg";
+import gallery3 from "../../assets/gallery/gallery7.JPG";
 import gallery4 from "../../assets/gallery/gallery4.jpg";
+import gallery5 from "../../assets/gallery/gallery12.JPG";
+import gallery6 from "../../assets/gallery/signature1.jpg";
 
-const images = [gallery1, gallery2, gallery3, gallery4];
+
+const images = [gallery1, gallery2, gallery3, gallery4, gallery5, gallery6];
 
 const AnupamSection = () => {
   const { lang } = useLanguage();
@@ -50,15 +53,15 @@ const AnupamSection = () => {
 
         <div className="min-w-0">
           <div className="flex flex-col gap-2">
-            <span className="text-(--forest-green) text-xs sm:text-sm uppercase">
+            <span className="text-(--forest-green) text-sm uppercase">
               {t.label}
             </span>
-            <h1 className="text-(--royal-purple) text-xl sm:text-2xl uppercase mb-4 sm:mb-6 font-bold break-words">
+            <h1 className="text-(--royal-purple) text-2xl sm:text-3xl uppercase mb-4 sm:mb-6 font-bold break-words">
               {t.heading}
             </h1>
           </div>
 
-          <p className="max-w-lg mb-6 text-sm sm:text-base leading-relaxed">
+          <p className="max-w-lg mb-6 text-sm sm:text-lg leading-relaxed">
             {t.desc}
           </p>
 

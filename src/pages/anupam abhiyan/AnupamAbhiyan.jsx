@@ -700,8 +700,8 @@ import { ChevronRight, CircleHelp, MapPin } from "lucide-react";
 import mapData from "../../data/mapData.json";
 import Timeline from "./Timeline";
 import anupam from '../../assets/gallery/anupamart.png';
-import img from '../../assets/gallery/gallery1.jpg';
-import img2 from '../../assets/homememberimg.jpg';
+import img from '../../assets/gallery/provincelevel.JPG';
+import img2 from '../../assets/gallery/konsabha.jpg';
 import halftone from '../../assets/halfton.png';
 import CampaignPillars from "./CampaignPillars";
 import { useLanguage } from '../../context/LanguageContext';
@@ -746,9 +746,9 @@ const yearVisuals = [
     pennant: { ne: "वर्ष ३", kw_en: "Signatures", kw_ne: "हस्ताक्षर" },
     status: { en: "Completed · 2025", ne: "सम्पन्न · २०२५" },
     img: "/assets/year-3.jpg",
-    districts: ALL_DISTRICTS.filter((code) => !Y3_OUT.includes(code)),
+    districts: ALL_DISTRICTS,
     out: Y3_OUT,
-    countN: 72,
+    countN: 77,
     countTotal: 77,
   },
   {
@@ -958,7 +958,7 @@ const AnupamAbhiyan = () => {
                 </figcaption>
               </figure>
              
-              <img src={y1img} className="mt-3"/>
+              <img src={selectedYear.img} className="mt-3"/>
               
              
             </div>

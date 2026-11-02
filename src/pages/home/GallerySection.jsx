@@ -79,10 +79,10 @@ export default function GallerySection() {
   return (
     <section className="w-full overflow-hidden bg-(--background) py-16">
       <div className="mx-auto mb-10 max-w-7xl px-6 md:px-10 justify-start flex flex-col gap-2">
-        <h2 className="text-2xl font-bold text-(--forest-green) tracking-tight text-foreground sm:text-3xl">
+        <h2 className="text-2xl uppercase font-bold text-(--forest-green) tracking-tight text-foreground md:text-3xl">
           Gallery
         </h2>
-        <span style={{fontFamily: "Inter"}} className="mt-2 font-medium text-2xl text-(--royal-purple) text-muted-foreground sm:text-3xl">
+        <span style={{fontFamily: "Inter"}} className="font-medium text-2xl text-(--royal-purple) text-muted-foreground md:text-3xl">
           VOICES. STORIES. MOMENTS. CHANGE.
         </span>
       </div>

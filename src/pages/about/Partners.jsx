@@ -30,10 +30,10 @@ export const Partners = () => {
         
         {/* Heading */}
         <div className="flex flex-col gap-3 items-center">
-          <h2 className="text-xl md:text-2xl font-bold text-(--forest-green) text-center uppercase">
+          <h2 className="text-2xl md:text-3xl font-bold text-(--forest-green) text-center uppercase">
             Support Partners
           </h2>
-          <span style={{fontFamily: "Inter"}} className="text-xl md:text-2xl font-medium text-(--royal-purple) uppercase text-center">
+          <span style={{fontFamily: "Inter"}} className="text-2xl md:text-3xl font-medium text-(--royal-purple) uppercase text-center">
             Together, We Create Change
           </span>
         </div>

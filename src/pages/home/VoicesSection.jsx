@@ -71,10 +71,10 @@ const VoicesSection = () => {
       {/* Heading row */}
       <div className="relative max-w-7xl mx-auto flex flex-col md:flex-row md:items-end md:justify-between gap-3 md:gap-4 mb-8 md:mb-12">
         <div>
-          <h2 className="text-white text-xl md:text-2xl font-extrabold uppercase leading-tight">
+          <h2 className="text-white text-2xl md:text-3xl font-extrabold uppercase leading-tight">
             {t.heading1}
           </h2>
-          <h2 className="text-(--amber-gold) text-xl md:text-2xl font-extrabold uppercase leading-tight">
+          <h2 className="text-(--amber-gold) text-2xl md:text-3xl font-extrabold uppercase leading-tight">
             {t.heading2}
           </h2>
         </div>

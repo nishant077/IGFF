@@ -59,7 +59,7 @@ const About = () => {
             </div>
           </div>
 
-          <div className="h-auto max-w-7xl mx-auto px-5 sm:px-6 lg:px-10 pt-6 md:pt-10 pb-6 md:pb-10">
+          <div className="h-auto max-w-7xl mx-auto px-5 sm:px-6 lg:px-10 pt-6 md:pt-8">
             {/* <div className="grid grid-cols-[1fr_2fr_1fr]">
               <div className="flex flex-col gap-4">
                 <h2 className="text-2xl font-bold text-(--forest-green) uppercase">{t.missionHeading}</h2>

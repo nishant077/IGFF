@@ -76,7 +76,7 @@ const CommitteeAssociate = () => {
               style={{ opacity: 0.03 }}
             />
       <div className='max-w-7xl px-6 md:px-10 mx-auto md:py-20 py-10 flex flex-col gap-10'>
-        <h1 className='md:text-3xl text-xl font-bold text-white text-center'>
+        <h1 className='md:text-3xl text-2xl font-bold text-white text-center'>
           {t.heading}
         </h1>
 
