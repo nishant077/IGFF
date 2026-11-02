@@ -10,7 +10,7 @@ import gallery2 from "../../assets/gallery/anupamart.png";
 import gallery3 from "../../assets/gallery/gallery7.JPG";
 import gallery4 from "../../assets/gallery/gallery4.jpg";
 import gallery5 from "../../assets/gallery/gallery12.JPG";
-import gallery6 from "../../assets/gallery/signature1.jpg";
+import gallery6 from "../../assets/gallery/gallery13.jpg";
 
 
 const images = [gallery1, gallery2, gallery3, gallery4, gallery5, gallery6];

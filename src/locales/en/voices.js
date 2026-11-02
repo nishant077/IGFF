@@ -1,6 +1,6 @@
 import Gyanu from "../../assets/committee associates/Gyanu Poudyal.png"
-import Rubeena from "../../assets/committee associates/Yajaswi Rai.png"
-import Kusum from "../../assets/committee associates/Amuda Mishra.png"
+import Rubeena from "../../assets/rubeena.jpeg"
+import Kusum from "../../assets/kusum maharjan.jpeg"
 
 const voices = {
     heading1: "Voices of",
