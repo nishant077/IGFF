@@ -1,7 +1,18 @@
 import provincemeeting from "../../assets/provincemeeting.JPG";
+import provincemeeting2 from "../../assets/gallery/gallery11.JPG";
+import provincemeeting3 from "../../assets/gallery/provincelevel.JPG";
+
+import busyatra1 from "../../assets/Bus yatra/busyatra1.JPG";
+import busyatra2 from "../../assets/Bus yatra/busyatra2.JPG";
+import busyatra3 from "../../assets/Bus yatra/busyatra3.JPG";
 import busyatra from "../../assets/publication3.JPG";
+
 import signature from "../../assets/signature.jpg";
+import signature1 from "../../assets/gallery/signaturecollection.jpg";
+import signature3 from "../../assets/gallery/signature3.jpg";
+
 import kon from "../../assets/gallery/gallery3.jpg";
+import kon2 from "../../assets/gallery/konsabha.jpg";
 
 const years = [
     {
@@ -14,7 +25,7 @@ const years = [
             { n: "5", label: "year plan set" },
         ],
         countLabel: "provinces reached",
-        img: provincemeeting,
+        img: [provincemeeting,provincemeeting2,provincemeeting3],
     },
     {
         id: "y2",
@@ -26,7 +37,7 @@ const years = [
             { n: "236", label: "Yatras" },
         ],
         countLabel: "of 77 districts",
-        img: busyatra,
+        img: [busyatra,busyatra1, busyatra2, busyatra3],
     },
     {
         id: "y3",
@@ -39,7 +50,7 @@ In its third year, Anupam Abhiyaan moved from awareness-raising to placing a cle
             { n: "50%", label: "representation demanded" },
         ],
         countLabel: "of 77 districts",
-        img: signature,
+        img: [signature,signature1,signature3],
     },
     {
         id: "y4",
@@ -52,7 +63,7 @@ In its third year, Anupam Abhiyaan moved from awareness-raising to placing a cle
             { n: "11.34%", label: "women among FPTP candidates" },
         ],
         countLabel: "districts at the convening · map data pending",
-        img: kon,
+        img: [kon,kon2],
     },
     {
         id: "y5",

@@ -695,8 +695,9 @@
 // }
 
 
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 import { ChevronRight, CircleHelp, MapPin } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
 import mapData from "../../data/mapData.json";
 import Timeline from "./Timeline";
 import anupam from '../../assets/gallery/anupamart.png';
@@ -706,7 +707,7 @@ import halftone from '../../assets/halfton.png';
 import CampaignPillars from "./CampaignPillars";
 import { useLanguage } from '../../context/LanguageContext';
 import translations from '../../translations';
-import y1img from '../../assets/gallery/gallery1.jpg';
+
 
 const MAP = mapData;
 const ALL_DISTRICTS = Object.keys(MAP.districts);
@@ -723,7 +724,6 @@ const yearVisuals = [
     mode: "prov",
     pennant: { ne: "वर्ष १", kw_en: "Launch", kw_ne: "सुरुवात" },
     status: { en: "Completed · 2022–23", ne: "सम्पन्न · २०२२–२३" },
-    img: y1img,
     districts: ALL_DISTRICTS,
     countN: 7,
     countTotal: 7,
@@ -734,7 +734,6 @@ const yearVisuals = [
     mode: "dist",
     pennant: { ne: "वर्ष २", kw_en: "Yatras", kw_ne: "यात्रा" },
     status: { en: "Completed · 2023–24", ne: "सम्पन्न · २०२३–२४" },
-    img: "/assets/year-2.jpg",
     districts: ALL_DISTRICTS,
     countN: 77,
     countTotal: 77,
@@ -745,7 +744,6 @@ const yearVisuals = [
     mode: "dist",
     pennant: { ne: "वर्ष ३", kw_en: "Signatures", kw_ne: "हस्ताक्षर" },
     status: { en: "Completed · 2025", ne: "सम्पन्न · २०२५" },
-    img: "/assets/year-3.jpg",
     districts: ALL_DISTRICTS,
     out: Y3_OUT,
     countN: 77,
@@ -758,7 +756,6 @@ const yearVisuals = [
     live: true,
     pennant: { ne: "वर्ष ४", kw_en: "Kon Sabha", kw_ne: "कोण सभा" },
     status: { en: "Running now · 2026", ne: "चलिरहेको · २०२६" },
-    img: "/assets/year-4.jpg",
     districts: null,
     countN: 53,
     countTotal: 77,
@@ -769,12 +766,13 @@ const yearVisuals = [
     mode: "dist",
     pennant: { ne: "वर्ष ५", kw_en: "2027", kw_ne: "२०२७" },
     status: { en: "Planned · 2027", ne: "आगामी · २०२७" },
-    img: "/assets/year-5.jpg",
     districts: null,
     countN: 0,
     countTotal: 77,
   },
 ];
+
+
 
 const AnupamAbhiyan = () => {
   const { lang } = useLanguage();
@@ -803,6 +801,22 @@ const AnupamAbhiyan = () => {
   const selectYear = (index) => {
     setYearIndex(index);
   };
+
+  // Carousel state — resets when year changes, cycles through selectedYear.img
+  const [carouselIndex, setCarouselIndex] = useState(0);
+  const carouselImages = selectedYear.img ?? [];
+
+  useEffect(() => {
+    setCarouselIndex(0);
+  }, [selectedYear.id]);
+
+  useEffect(() => {
+    if (carouselImages.length < 2) return;
+    const interval = setInterval(() => {
+      setCarouselIndex((prev) => (prev + 1) % carouselImages.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [carouselImages]);
 
   // Helper: read inline {en, ne} objects (status, pennant)
   const copy = (obj) => (obj ? obj[lang] : "");
@@ -836,13 +850,13 @@ const AnupamAbhiyan = () => {
               <div className="grid md:grid-cols-2 grid-cols-1 gap-8 md:gap-10">
                 <div className="flex flex-col gap-4 order-2 md:order-1">
                   <h1 className="text-2xl md:text-3xl font-bold text-white">
-                     {heroT.heading}
+                    {heroT.heading}
                   </h1>
                   <span
                     style={{ fontFamily: "Inter" }}
                     className="font-medium text-sm text-(--amber-gold)"
                   >
-                     {heroT.period}
+                    {heroT.period}
                   </span>
                   <p className="text-sm md:text-base font-medium text-white text-justify">
                     {heroT.intro}
@@ -864,10 +878,10 @@ const AnupamAbhiyan = () => {
               <img src={img} alt="anupamimg" className="border-8 border-white -rotate-6" />
               <div className="flex justify-center items-center flex-col gap-4">
                 <h3 className="text-3xl text-(--royal-purple) text-center font-bold">
-                   {heroT.featureHeading}
+                  {heroT.featureHeading}
                 </h3>
                 <p className="text-base text-center">
-                   {heroT.featureBody}
+                  {heroT.featureBody}
                 </p>
               </div>
               <img src={img2} alt="anupamimg" className="border-8 border-white rotate-6" />
@@ -929,7 +943,7 @@ const AnupamAbhiyan = () => {
                     >
                       {fact.label}
                     </span>
-                    
+
                   </li>
                 ))}
               </ul>
@@ -957,10 +971,25 @@ const AnupamAbhiyan = () => {
                   {selectedYear.cap}
                 </figcaption>
               </figure>
-             
-              <img src={selectedYear.img} className="mt-3"/>
-              
-             
+
+              {/* <img src={selectedYear.img} className="mt-3"/> */}
+
+              <div className="relative w-full aspect-[4/3] md:aspect-auto md:h-full md:min-h-[340px] border-4 md:border-8 border-white overflow-hidden">
+                <AnimatePresence mode="sync">
+                  <motion.img
+                    key={carouselImages[carouselIndex]}
+                    src={carouselImages[carouselIndex]}
+                    alt=""
+                    initial={{ opacity: 0, scale: 1.05 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.98 }}
+                    transition={{ duration: 1, ease: "easeInOut" }}
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                </AnimatePresence>
+              </div>
+
+
             </div>
 
             {/* Map column */}
@@ -1017,8 +1046,8 @@ function MapCard({ year, lang }) {
       year.mode === "dist"
         ? year.districts !== null && reached.has(code)
         : year.mode === "prov"
-        ? true
-        : false;
+          ? true
+          : false;
 
     const svg = event.currentTarget.ownerSVGElement;
     const point = svg.createSVGPoint();
@@ -1130,9 +1159,8 @@ function MapCard({ year, lang }) {
                   <path
                     key={code}
                     d={district.d}
-                    className={`district cursor-pointer outline-none ${
-                      hovered === code ? "district-hovered" : ""
-                    }`}
+                    className={`district cursor-pointer outline-none ${hovered === code ? "district-hovered" : ""
+                      }`}
                     style={{
                       fill: active ? year.accent : muted ? "#ead0c2" : "#f4ddcf",
                       stroke: hovered === code ? "#35133f" : "#fffaf5",
@@ -1216,12 +1244,10 @@ function MapCard({ year, lang }) {
                   fontFamily="Inter, sans-serif"
                 >
                   {lang === "en"
-                    ? `${PROVINCE_NAMES[tooltip.pr]?.en} Province · ${
-                        tooltip.reached ? "Reached" : "Not reached"
-                      }`
-                    : `${PROVINCE_NAMES[tooltip.pr]?.ne} प्रदेश · ${
-                        tooltip.reached ? "पुग्यो" : "पुगेन"
-                      }`}
+                    ? `${PROVINCE_NAMES[tooltip.pr]?.en} Province · ${tooltip.reached ? "Reached" : "Not reached"
+                    }`
+                    : `${PROVINCE_NAMES[tooltip.pr]?.ne} प्रदेश · ${tooltip.reached ? "पुग्यो" : "पुगेन"
+                    }`}
                 </text>
               </g>
             )}
@@ -1251,8 +1277,8 @@ function MapCard({ year, lang }) {
                 ? "Province reached"
                 : "पुगेका प्रदेश"
               : lang === "en"
-              ? "District reached"
-              : "पुगेका जिल्ला"}
+                ? "District reached"
+                : "पुगेका जिल्ला"}
           </span>
           <span>
             <i className="mr-[5px] inline-block h-[9px] w-[9px] rounded-full bg-[#ead0c2] align-[-1px]" />
@@ -1261,8 +1287,8 @@ function MapCard({ year, lang }) {
                 ? "Province not reached"
                 : "नपुगेका प्रदेश"
               : lang === "en"
-              ? "District not reached"
-              : "नपुगेका जिल्ला"}
+                ? "District not reached"
+                : "नपुगेका जिल्ला"}
           </span>
           {year.districts === null && (
             <span>
@@ -1274,7 +1300,7 @@ function MapCard({ year, lang }) {
       </div>
 
       {/* Province-grouped district list */}
-      <div className="mt-[23px] border-t border-[#dfc5b9] pt-5">
+      {/* <div className="mt-[23px] border-t border-[#dfc5b9] pt-5">
         <div className="relative mb-5">
           <input
             type="text"
@@ -1287,9 +1313,9 @@ function MapCard({ year, lang }) {
             }
             className="w-full rounded-xl border border-[#dfc5b9] bg-[#fffaf5] px-4 py-[13px] text-[14px] text-[#2a1831] placeholder:text-[#a68f9a] outline-none transition focus:border-[#5c2371] focus:ring-2 focus:ring-[#5c2371]/10"
           />
-        </div>
+        </div> */}
 
-        <div className="rounded-xl border border-[#ecd9cf] bg-[#fffaf5] overflow-hidden">
+      {/* <div className="rounded-xl border border-[#ecd9cf] bg-[#fffaf5] overflow-hidden">
           {[1, 2, 3, 4, 5, 6, 7].map((pr, idx) => {
             const provinceName = PROVINCE_NAMES[pr];
             const provinceDistricts = ALL_DISTRICTS.filter(
@@ -1321,69 +1347,71 @@ function MapCard({ year, lang }) {
             const moreCount = filtered.length - visibleDistricts.length;
 
             return (
-              <div key={pr} className={idx !== 0 ? "border-t border-[#ecd9cf]" : ""}>
-                <button
-                  type="button"
-                  onClick={() => setOpenProvince(isOpen && !search.trim() ? null : pr)}
-                  className="flex w-full items-center justify-between px-4 py-[14px] text-left transition hover:bg-[#fdf3ec]"
-                >
-                  <div className="flex items-baseline gap-3">
-                    <span className="font-['Nunito',sans-serif] text-[20px] font-black tracking-[-.02em] text-[#5c2371]">
-                      {provinceName.en}
-                    </span>
-                    <span className="font-['Noto_Sans_Devanagari',sans-serif] text-[15px] text-[#8b7480]">
-                      {provinceName.ne}
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-2 text-[14px] font-semibold text-[#7d6874]">
-                    <span>
-                      {provinceDistricts.length} {lang === "en" ? "districts" : "जिल्ला"}
-                    </span>
-                    <ChevronRight
-                      size={18}
-                      className={`transition-transform ${isOpen ? "rotate-90" : ""}`}
-                    />
-                  </div>
-                </button>
+              // <div key={pr} className={idx !== 0 ? "border-t border-[#ecd9cf]" : ""}>
+              //   <button
+              //     type="button"
+              //     onClick={() => setOpenProvince(isOpen && !search.trim() ? null : pr)}
+              //     className="flex w-full items-center justify-between px-4 py-[14px] text-left transition hover:bg-[#fdf3ec]"
+              //   >
+              //     <div className="flex items-baseline gap-3">
+              //       <span className="font-['Nunito',sans-serif] text-[20px] font-black tracking-[-.02em] text-[#5c2371]">
+              //         {provinceName.en}
+              //       </span>
+              //       <span className="font-['Noto_Sans_Devanagari',sans-serif] text-[15px] text-[#8b7480]">
+              //         {provinceName.ne}
+              //       </span>
+              //     </div>
+              //     <div className="flex items-center gap-2 text-[14px] font-semibold text-[#7d6874]">
+              //       <span>
+              //         {provinceDistricts.length} {lang === "en" ? "districts" : "जिल्ला"}
+              //       </span>
+              //       <ChevronRight
+              //         size={18}
+              //         className={`transition-transform ${isOpen ? "rotate-90" : ""}`}
+              //       />
+              //     </div>
+              //   </button>
 
-                {isOpen && (
-                  <div className="flex flex-wrap gap-2 px-4 pb-4 pt-1">
-                    {visibleDistricts.map((code) => {
-                      const isReached = reached.has(code);
-                      return (
-                        <span
-                          key={code}
-                          className={`rounded-full border px-[14px] py-[7px] text-[13px] font-semibold transition ${
-                            isReached
-                              ? "border-[#5c2371]/30 bg-[#f1dbe2] text-[#5c2371]"
-                              : "border-[#e8d6cc] bg-[#faf1ea] text-[#a68f9a]"
-                          }`}
-                        >
-                          {code}
-                        </span>
-                      );
-                    })}
-                    {moreCount > 0 && (
-                      <button
-                        type="button"
-                        onClick={() => setOpenProvince(pr)}
-                        className="rounded-full border border-dashed border-[#c9a9b6] bg-transparent px-[14px] py-[7px] text-[13px] font-semibold text-[#5c2371] transition hover:bg-[#f1dbe2]"
-                      >
-                        {lang === "en" ? `+${moreCount} more` : `+${moreCount} थप`}
-                      </button>
-                    )}
-                    {filtered.length === 0 && (
-                      <span className="py-2 text-[12px] italic text-[#a68f9a]">
-                        {lang === "en" ? "No districts match" : "कुनै जिल्ला मिलेन"}
-                      </span>
-                    )}
-                  </div>
-                )}
-              </div>
+              //   {isOpen && (
+              //     <div className="flex flex-wrap gap-2 px-4 pb-4 pt-1">
+              //       {visibleDistricts.map((code) => {
+              //         const isReached = reached.has(code);
+              //         return (
+              //           <span
+              //             key={code}
+              //             className={`rounded-full border px-[14px] py-[7px] text-[13px] font-semibold transition ${
+              //               isReached
+              //                 ? "border-[#5c2371]/30 bg-[#f1dbe2] text-[#5c2371]"
+              //                 : "border-[#e8d6cc] bg-[#faf1ea] text-[#a68f9a]"
+              //             }`}
+              //           >
+              //             {code}
+              //           </span>
+              //         );
+              //       })}
+              //       {moreCount > 0 && (
+              //         <button
+              //           type="button"
+              //           onClick={() => setOpenProvince(pr)}
+              //           className="rounded-full border border-dashed border-[#c9a9b6] bg-transparent px-[14px] py-[7px] text-[13px] font-semibold text-[#5c2371] transition hover:bg-[#f1dbe2]"
+              //         >
+              //           {lang === "en" ? `+${moreCount} more` : `+${moreCount} थप`}
+              //         </button>
+              //       )}
+              //       {filtered.length === 0 && (
+              //         <span className="py-2 text-[12px] italic text-[#a68f9a]">
+              //           {lang === "en" ? "No districts match" : "कुनै जिल्ला मिलेन"}
+              //         </span>
+              //       )}
+              //     </div>
+              //   )}
+              // </div>
+              <>
+              </>
             );
           })}
-        </div>
-      </div>
+        </div> */}
+      {/* </div> */}
     </div>
   );
 }

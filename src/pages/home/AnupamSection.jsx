@@ -35,7 +35,7 @@ const AnupamSection = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
         {/* Image carousel */}
         <div className="px-1 py-3 md:p-0 md:self-stretch">
-          <div className="relative -rotate-3 w-full aspect-[4/3] md:aspect-auto md:h-full md:min-h-[340px] border-4 sm:border-8 border-white overflow-hidden">
+          <div className="relative -rotate-3 w-full aspect-[4/3] md:aspect-auto md:h-full md:min-h-[340px] border-4 md:border-8 border-white overflow-hidden">
             <AnimatePresence mode="sync">
               <motion.img
                 key={images[index]}
